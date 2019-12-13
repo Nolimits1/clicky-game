@@ -23,7 +23,7 @@ class App extends Component{
   render(){
     return(
     <div className="App">
-      <Header headerName = "Clicky Game"/>
+      <Header headerName = "Dragon Ball Z Clicker"/> 
       <button onClick={this.hideInstruction}>Click me to hide Instruction</button>
       {this.state.hide?null:<Instruction/>}
       <Notifier/>
