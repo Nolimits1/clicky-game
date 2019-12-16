@@ -1,12 +1,14 @@
 import React from "react";
-import "../imagesContainer/image.css"
+import "../imagesContainer/image.css";
+import "./images.json";
 
-const images = () => {
+const images = (images) =>{
     return(
         <div>
-            <p>This will be where images will appear.</p>
+            {images}
         </div>
     )
 }
+
 
 export default images;

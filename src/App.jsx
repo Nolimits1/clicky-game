@@ -9,29 +9,31 @@ import Image from "./components/imagesContainer/Image";
 import Footer from "./components/footer/Footer";
 
 
-class App extends Component{
+class App extends Component {
   state = {
     headerName: "Hello I am header coming from state",
-    hide:false
+    hide: false
   }
 
   hideInstruction = () => {
-    this.setState({hide:true});
+    this.setState({ hide: true });
   }
 
 
-  render(){
-    return(
-    <div className="App">
-      <Header headerName = "Dragon Ball Z Clicker"/> 
-      <button onClick={this.hideInstruction}>Click me to hide Instruction</button>
-      {this.state.hide?null:<Instruction/>}
-      <Notifier/>
-      <ImagesContainer/>
-      <Image/>
-      <Footer/>
-    </div>
-    )};
+  render() {
+    return (
+      <div className="App">
+        <Header headerName="Dragon Ball Z Clicker" />
+        <button onClick={this.hideInstruction}>Start</button>
+        {this.state.hide ? null : <Instruction />}
+        <Notifier />
+        <ImagesContainer>
+          <Image />
+        </ImagesContainer>
+        <Footer />
+      </div>
+    )
+  };
 }
 
 export default App;
