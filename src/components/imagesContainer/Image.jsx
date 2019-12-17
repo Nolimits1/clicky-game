@@ -1,14 +1,14 @@
 import React from "react";
 import "../imagesContainer/image.css";
-import "./images.json";
 
-const images = (images) =>{
+const image = (props) => {
     return(
-        <div>
-            {images}
+        <div className = "image">
+            <img src={props.img} alt = {props.imageAlt} onClick = {props.handleShuffle, props.checkImageAndAdd(props.key)}/>
         </div>
     )
 }
+       
 
 
-export default images;
+export default image;
