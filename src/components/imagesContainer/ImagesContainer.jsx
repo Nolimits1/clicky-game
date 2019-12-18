@@ -16,12 +16,9 @@ import southkai from './../../assets/images/southkai.png';
 
 class ImagesContainer extends Component{
     constructor(props){
-        super();
+        super(props);
         this.props = props;
-        this.state = {
-            imagesId:[]
-        }
-        var imagesId = [];
+        this.imagesId = [];
         this.images = [{
             "id": 1,
             "image": bulma,
@@ -71,26 +68,38 @@ class ImagesContainer extends Component{
        
     }
 
-    checkImageAndAdd = (id) =>{
-        if(this.state.imagesId.length === 0){
-            this.setState({imagesId: this.state.imagesId.push(id) });
+    checkImageAndAdd = (id) => {
+        if(this.props.restart){
+            this.imagesId = [];
+            this.handleRestartFalse();
+        }
+
+        if(this.imagesId.length === 0){
+            this.imagesId.push(id);
+            this.props.handleCount();
             return;
         }
 
-        for(let i = 0; i<this.state.imagesId.length; i++){
-            if(this.state.imagesId[i]===id){
+        for(let i = 0; i<this.imagesId.length; i++){
+            if(this.imagesId[i] === id){
                 this.props.handleLostState();
                 return;
             }
         } 
 
-        this.setState({imagesId:this.imagesId.push(id)});
+
+        this.imagesId.push(id);
         this.props.handleCount();
+
+        if(this.imagesId.length === 9){
+            this.props.handleWinState();
+            return;
+        }
+
     }
 
 
-    handleShuffle = () =>{
-        this.forceUpdate();
+    handleShuffle = () => {
         this.images = this.props.shuffle(this.images);
 
     }
@@ -100,9 +109,13 @@ class ImagesContainer extends Component{
             <div className = "imagesContainer">
                 {this.images.map((image, i) => {
                     return <Image 
+                    id = {image.id}
                     key ={image.id} 
                     img = {image.image} 
-                    imageAlt = {image.name} 
+                    imageAlt = {image.name}
+                    lost = {this.props.lost}
+                    win = {this.props.isWinner}
+                    gameStarted = {this.props.gameStarted}
                     handleShuffle = {this.handleShuffle}
                     checkImageAndAdd = {this.checkImageAndAdd}/>
                 })}

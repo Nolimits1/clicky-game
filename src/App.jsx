@@ -14,7 +14,8 @@ class App extends Component {
     gameStarted: false,
     count: 9,
     isWinner: false,
-    lost: false
+    lost: false,
+    restart: false
 
   }
 
@@ -46,25 +47,48 @@ class App extends Component {
   }
 
   handleCount = () => {
-    this.setState({count: this.state.count-1});
+      this.setState({count: this.state.count-1});
+
+      if(this.props.count === 0){
+        this.handleWinState();
+      } 
   }
 
+  handleWinState = () => {
+      this.setState({isWinner: true});
+  }
+
+  handleRestart = () => {
+    this.setState({count:9,lost:false,win:false, restart:true})
+  }
+
+  handleRestartFalse = () => {
+    this.setState({restart:false});
+  }
 
   render() {
-    let { count, isWinner, lost } = this.state;
+    let { count, isWinner, lost, gameStarted} = this.state;
     return (
       <div className="App">
         <Header headerName="Dragon Ball Z Clicker" />
         {this.state.gameStarted ? <Notifier
           handleRestart={this.handleRestart}
           count={count}
-          handleLostState={this.handleLostState} /> :
+          isWinner = {isWinner}
+          lost={lost} /> :
           <Instruction startGame={this.startGame} />}
         
         <ImagesContainer
+          handleRestartFalse = {this.handleRestartFalse}
+          count = {count}
+          lost = {lost}
+          isWinner = {isWinner}
+          handleWinState = {this.handleWinState}
           handleLostState = {this.handleLostState} 
           handleCount={this.handleCount} 
-          shuffle={this.shuffle} />
+          shuffle={this.shuffle}
+          restart = {this.state.restart}
+          gameStarted = {gameStarted}/>
         
         <Footer />
       </div>

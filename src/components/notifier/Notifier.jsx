@@ -6,7 +6,9 @@ const notifier = (props) => {
         <div>
             <h2>Game Started</h2>
 <p>Count: {props.count}</p>
-            <button onClick = {props.handleRestart}>Restart</button>
+    <p>{props.lost ? "You lost" : ""}</p>
+    <p>{props.isWinner? "You won":""}</p>
+    {props.lost ? <span>&#8594;</span>:<span></span>}<button onClick = {props.handleRestart}>Restart</button>
         </div>
     )
 }
