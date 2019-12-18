@@ -71,7 +71,7 @@ class ImagesContainer extends Component{
     checkImageAndAdd = (id) => {
         if(this.props.restart){
             this.imagesId = [];
-            this.handleRestartFalse();
+            this.props.handleRestartFalse();
         }
 
         if(this.imagesId.length === 0){
