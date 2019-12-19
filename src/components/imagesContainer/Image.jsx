@@ -9,15 +9,15 @@ const image = props => {
       {props.lost || props.win || !props.gameStarted ? (
         <img src={props.img} alt={props.imageAlt} />
       ) : (
-        <img
-          src={props.img}
-          alt={props.imageAlt}
-          onClick={() => {
-            props.handleShuffle();
-            props.checkImageAndAdd(props.id);
-          }}
-        />
-      )}
+          <img
+            src={props.img}
+            alt={props.imageAlt}
+            onClick={() => {
+              props.handleShuffle();
+              props.checkImageAndAdd(props.id);
+            }}
+          />
+        )}
     </div>
   );
 };

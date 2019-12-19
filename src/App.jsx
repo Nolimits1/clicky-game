@@ -78,8 +78,8 @@ class App extends Component {
             lost={lost}
           />
         ) : (
-          <Instruction startGame={this.startGame} />
-        )}
+            <Instruction startGame={this.startGame} />
+          )}
 
         <ImagesContainer
           handleRestartFalse={this.handleRestartFalse}
