@@ -67,8 +67,6 @@ class ImagesContainer extends Component {
     ];
 
   }
-       
-    }
 
     checkImageAndAdd = (id) => {
         if(this.props.restart){
@@ -97,6 +95,7 @@ class ImagesContainer extends Component {
             this.props.handleWinState();
             return;
         }
+  }
 
   checkImageAndAdd = id => {
     if (this.props.restart) {
@@ -129,6 +128,7 @@ class ImagesContainer extends Component {
   handleShuffle = () => {
     this.images = this.props.shuffle(this.images);
   };
+  
   render() {
     return (
       <div className="imagesContainer">
