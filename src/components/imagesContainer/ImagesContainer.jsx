@@ -65,9 +65,8 @@ class ImagesContainer extends Component {
         name: " South Kai"
       }
     ];
-<<<<<<< HEAD
+
   }
-=======
        
     }
 
@@ -98,7 +97,6 @@ class ImagesContainer extends Component {
             this.props.handleWinState();
             return;
         }
->>>>>>> f9fef7e62c2d06fdfdd5d8369e2898b47f4f1917
 
   checkImageAndAdd = id => {
     if (this.props.restart) {

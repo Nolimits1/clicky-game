@@ -58,7 +58,9 @@ class App extends Component {
   };
 
   handleRestart = () => {
-    this.setState({ count: 9, lost: false, win: false, restart: true });
+    
+    this.setState({ count: 9, lost: false, isWinner: false, restart: true });
+        
   };
 
   handleRestartFalse = () => {
@@ -78,8 +80,9 @@ class App extends Component {
             lost={lost}
           />
         ) : (
-            <Instruction startGame={this.startGame} />
-          )}
+          
+          <Instruction startGame={this.startGame} />
+        )}
 
         <ImagesContainer
           handleRestartFalse={this.handleRestartFalse}

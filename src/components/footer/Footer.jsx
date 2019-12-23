@@ -4,7 +4,9 @@ import "../footer/footer.css";
 const footer = () => {
   return (
     <div className="Footer">
-      <footer>I am the footer.</footer>
+
+      <footer>© Emilio Valladares 2020</footer>
+
     </div>
   );
 };
