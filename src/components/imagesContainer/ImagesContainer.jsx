@@ -65,7 +65,38 @@ class ImagesContainer extends Component {
         name: " South Kai"
       }
     ];
+
   }
+       
+    }
+
+    checkImageAndAdd = (id) => {
+        if(this.props.restart){
+            this.imagesId = [];
+            this.props.handleRestartFalse();
+        }
+
+        if(this.imagesId.length === 0){
+            this.imagesId.push(id);
+            this.props.handleCount();
+            return;
+        }
+
+        for(let i = 0; i<this.imagesId.length; i++){
+            if(this.imagesId[i] === id){
+                this.props.handleLostState();
+                return;
+            }
+        } 
+
+
+        this.imagesId.push(id);
+        this.props.handleCount();
+
+        if(this.imagesId.length === 9){
+            this.props.handleWinState();
+            return;
+        }
 
   checkImageAndAdd = id => {
     if (this.props.restart) {
