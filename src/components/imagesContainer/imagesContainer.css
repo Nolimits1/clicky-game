@@ -1,7 +1,9 @@
 .imagesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-evenly;
-    margin: auto;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  padding-top: 100px;
+  justify-content: space-evenly;
+  margin: auto;
 }
