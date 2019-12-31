@@ -5,6 +5,7 @@ Try to only click each image once. Everytime an image is clicked the images shuf
 ## Tools Utilized
 * React
 * gh-pages
+* Animate CSS
 
 ## Instructions
 1. Click "Start" button to begin!
